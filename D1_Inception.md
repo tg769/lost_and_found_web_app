@@ -37,7 +37,7 @@ On university campuses, students and staff frequently misplace personal items su
 - _“The problem isn’t just getting my stuff back, it’s making sure whoever found it isn’t snooping through it.”_
 - _“Ok, but would the web app just let anyone see what is posted? And who it is posted by? I’d use it if it were safe.”_
 
-**Assessment:**  
+**Assessment:**
 **Must Have** — Aaron’s strong emphasis on security and trust shows he would actively use a centralized lost-and-found platform. His language indicates genuine urgency and emotional investment.
 
 ---
@@ -62,7 +62,7 @@ On university campuses, students and staff frequently misplace personal items su
 - _“Right now, it’s a guessing game of who to email. By the time I get a response, I’ve already wasted a day.”_
 - _“If the app could notify me right away when something’s found, I’d be on board instantly.”_
 
-**Assessment:**  
+**Assessment:**
 **Must Have** — Priya expressed clear urgency for a faster and more efficient lost-and-found process, tied directly to her academic and job responsibilities.
 
 ---
@@ -86,7 +86,7 @@ On university campuses, students and staff frequently misplace personal items su
 - _“If there was one system to report where I left an item, that would save me from constant questions.”_
 - _“I don’t need bells and whistles — just a quick way to log it and move on.”_
 
-**Assessment:**  
+**Assessment:**
 **Nice to Have** — While Michael would use the system, his need is more about convenience in his work, not personal urgency.
 
 ---
@@ -111,7 +111,7 @@ On university campuses, students and staff frequently misplace personal items su
 - _“Usually I just check the front desk, but if it’s not there, I give up.”_
 - _“If the app told me right away where my stuff ended up, I’d actually get it back.”_
 
-**Assessment:**  
+**Assessment:**
 **Must Have** — Jasmine expressed recurring frustration and a strong need for a simple way to track frequently misplaced items.
 
 ---
@@ -135,7 +135,7 @@ On university campuses, students and staff frequently misplace personal items su
 - _“Last time I lost my charger, I bought another one because I couldn’t wait a week to see if it turned up.”_
 - _“If the app could cut down on that kind of waste, I’d definitely use it.”_
 
-**Assessment:**  
+**Assessment:**
 **Must Have** — David tied the problem directly to financial loss, showing a strong motivation to use a centralized lost-and-found solution.
 
 ---
@@ -185,7 +185,7 @@ Don’t Care — Sam doesn’t acknowledge the need for a lost and found platfor
 **Key Insights:**
 
 - Shaini bounces between campus and work and home a lot. You end up leaving stuff behind in classrooms or lounge areas without even realizing.
-- One time she forgot her gym bag at the library. Came back the next day only to find it got shuffled off to some random room. 
+- One time she forgot her gym bag at the library. Came back the next day only to find it got shuffled off to some random room.
 - She mentioned how tracking down lost things felt like a scavenger hunt with no clues.
 - Biggest thing for her was clear updates. If something turns up, she needs to know right away where exactly to go get it.
 
@@ -195,7 +195,7 @@ Don’t Care — Sam doesn’t acknowledge the need for a lost and found platfor
 - _“Last time it took me three different classes before I found my bag. I don’t have time for that.”_
 - _“If the app could just ping me when something turns up, that would save me so much stress.”_
 
-**Assessment:**  
+**Assessment:**
 **Must Have** — Shaini lives that fast commuter life. You know how it goes. Losing stuff probably happens more than she’d like. Having one central system to keep things straight must seem pretty key for her.
 
 ---
@@ -209,7 +209,7 @@ Don’t Care — Sam doesn’t acknowledge the need for a lost and found platfor
 **Key Insights:**
 
 - Marcus usually doesn’t misplace items because he lives close by and can return to his dorm quickly if he forgets something.
-- He occasionally finds other people’s items during club meetings and events, like water bottles, jackets, or chargers. 
+- He occasionally finds other people’s items during club meetings and events, like water bottles, jackets, or chargers.
 - His main frustration is not knowing where to turn items in or whether they’ll actually reach their owner.
 - He sees a lost-and-found system as useful for the community but not one specific for everything and different places he finds stuff at.
 
@@ -219,17 +219,81 @@ Don’t Care — Sam doesn’t acknowledge the need for a lost and found platfor
 - _“The issue I see is more with items left at events—nobody knows where to put them, so they just sit around.”_
 - _“I think a system could help others more than me, but I’d use it to make sure stuff I find gets back to people.”_
 
-**Assessment:**  
+**Assessment:**
 **Nice to Have** — Marcus doesn’t feel a personal urgency but recognizes the value of the system for community benefit and would engage as a finder rather than a seeker.
+---
+---
+### **Interview 10**
 
+- **Who was interviewed (role/background):** Emily, a sophomore biology major who lives on campus and uses multiple study spaces a day.
+- **Who participated in the interview (team members):** Keith Schmidt
+- **Interview date:** September 19th, 2025
+- **Customer segment represented:** Undergraduate students who are always on the go from their dorms to classrooms to libraries.
+
+**Key Insights:**
+
+- Loses personal items two to three times a semester, typically in spaces that are shared, like the library or student center.
+- Currently posts in campus Discord, asks friends, and checks front desks, but not always at the same time  and it often takes time.
+- Would like a singular, centralized campus-wide platform where she can check for found items quickly, and ideally wants photos.
+
+**Representative Quotes:**
+
+- _"I literally ran back and forth across campus to three different front desks to see if someone turned in my bottle, and no one had a clue where it might be  it's exhausting."_
+- _"If I could just see a picture online of my bottle right after it was turned in that day, I would definitely check daily."_
+- _"I would totally use this app! it would save me so much time."_
+
+**Assessment:**
+**Must Have**  Emily indicated urgency, pointed out she would use it, and majorly was frustrated with the process that is currently fragmented.
+
+---
+### **Interview 11**
+
+- **Who was interviewed (role/background):** Professor James is a faculty member who teaches history using a multitude of lecture classrooms each week.
+- **Who participated in the interview (team members):** Keith Schmidt
+- **Interview Date:** September 19, 2025
+- **Customer segment represented:** Faculty and staff who on occasion misplace higher value (to the person who lost the item) items (which could include bags, lecture notes, computer, etc).
+
+**Key Insights:**
+
+- Professor James shares that he rarely loses things but is clear when he does, it has a significant consequence (loss of preparation time, stress).
+- Current process is slow and cumbersome (having, needing and checking around campus, or waiting for someone to return the item).
+- He is in favor of a system that would let him know if an important item is returned, but doesn't see it as urgent, because it doesn't happen that much.
+
+**Representative Quotes:**
+
+- _"Once I lost my laptop bag, it took security two days to call. That's two days I can't work on my lectures."_
+- _"Even if there was a way to post these and then something comes back, I don't worry nearly as much."_
+
+**Assessment:**
+**Nice to Have** - While James has some appreciation for the benefit, he does not experience the issue often enough to actively search out that kind of solution.
+
+---
+### **Interview 12**
+
+- **Who was interviewed (role/background):** Mark is a senior in computer science, and is a commuter who spends a lot of time in lab and common areas.
+- **Who participated in the interview (team members):** Keith Schmidt
+- **Interview date:** September 20, 2025
+- **Customer segment represented:** to represent students who routinely need to carry small, necessary items, like earbuds, stylus pens, or notebooks, who ultimately leave behind, misplace or lose their item.
+
+**Key Insights:**
+
+- Loses personal items frequently in the lab or lounges and has no reliable way to see if someone has turned it in or picked it up.
+- Feels it takes to long to ask/message the group, find the right post or group to ask about his stuff.
+
+**Representative Quotes:**
+
+- _"Right now I just have to spam three group chats and hope out of the 500 people hoping it them."_
+- _"If there was one community spot, I just check, and I'd probably get it back faster."_
+
+**Assessment:**
+**Must Have**  Mark ties losing personal items with time lost or a frustrating experience, due to the lack of an idea to recover the lost item, and that he would want a solution, should one exist.
 ---
 ## **4. Final Value Proposition and Customer Segments**
 
-- **Final Value Proposition:**  
+- **Final Value Proposition:**
   Our Lost & Found web app helps students get their belongings back faster and with less stress by giving them one secure place to report and check for lost items. It reduces the hassle of retracing steps, saves money on replacements, and makes the whole process more reliable than current word-of-mouth methods.
 
-- **Final Customer Segment:**  
+- **Final Customer Segment:**
   Students who live on campus or move around to different buildings every day, especially those who carry important items like IDs, laptops, keys, and chargers, and feel a real need for a safe and dependable way to recover their stuff.
 
 ---
-
