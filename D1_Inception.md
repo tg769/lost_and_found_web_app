@@ -139,6 +139,40 @@ On university campuses, students and staff frequently misplace personal items su
 **Must Have** — David tied the problem directly to financial loss, showing a strong motivation to use a centralized lost-and-found solution.
 
 ---
+### **Interview 6**
+* Who was interviewed (role/background): Daniel, campus IT support, manages the tech infrastructure and helps troubleshoot issues with university systems.
+* Who participated in the interview (team members): Aryan
+* Interview date: September 20, 2025
+* Customer segment represented: Campus staff was involved in operational support and he has a focus on making campus services better.
+Key Insights:
+* Daniel does find lost items occasionally which is related to campus tech, for example- chargers or laptop accessories, in computer labs and public workspaces.
+* He thinks the current system of reporting lost items is mostly alright but does lacks efficiency and organization.
+* His main problem with the current system is the inconsistency of how lost items are managed across various departments.
+* Even though he doesn’t feel a personal need for a lost and found system, he acknowledges that a system like this would definitely improve operational efficiency for faculty and staff.
+Representative Quotes:
+* “I don’t deal with lost items much myself, but I hear a lot about it from the students.”
+* “As of right now there is no centralized way to track the items across departments. It’s not broken, but it could be a lot better.”
+* “It’d be helpful to have a system that brings everything together, but it’s not something I would actually seek out on my own.”
+Assessment:
+Nice to Have — Daniel knows that there is potential value in a centralized system for lost items but doesn’t see it as an urgent or immediate need from his perspective.
+
+---
+### **Interview 7**
+* Who was interviewed (role/background): Sam, senior business major, rarely misplaces items and is generally unconcerned with a system for lost and found.
+* Who participated in the interview (team members): Aryan
+* Interview date: September 21, 2025
+* Customer segment represented: Has a busy schedule but a very low frequency of losing personal items.
+Key Insights:
+* Sam is very organized and does not lose items often, so he hasn’t experienced the frustration others have with lost and found systems.
+* He sees the idea of a web app for tracking lost items as unnecessary and doesn’t  actually see the value in it.
+* When he does misplace something, he either finds it on his own or doesn’t worry too much about it.
+* Sam is really skeptical about new technologies unless they provide clear and immediate value, which he doesn’t see with a lost and found system.
+Representative Quotes:
+* “I rarely lose things, and when I do, it’s usually never a major inconvenience that I get over quickly.”
+* “Personally, I don’t see why I’d need an app for lost items. I’ve managed just fine without it.”
+* “If it’s not going to save me time or make my life easier, I wouldn’t bother using it.”
+Assessment:
+Don’t Care — Sam doesn’t acknowledge the need for a lost and found platform and is very unlikely to engage with it, as he doesn’t experience the same things that others do.
 
 ---
 
@@ -151,3 +185,4 @@ On university campuses, students and staff frequently misplace personal items su
   Students who live on campus or move around to different buildings every day, especially those who carry important items like IDs, laptops, keys, and chargers, and feel a real need for a safe and dependable way to recover their stuff.
 
 ---
+
