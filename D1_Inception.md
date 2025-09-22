@@ -175,7 +175,54 @@ Assessment:
 Don’t Care — Sam doesn’t acknowledge the need for a lost and found platform and is very unlikely to engage with it, as he doesn’t experience the same things that others do.
 
 ---
+### **Interview 8**
 
+- **Who was interviewed (role/background):** Shaini, sophomore student, juggles part-time work and classes. Carries multiple bags with books, gym gear, and electronics.
+- **Who participated in the interview (team members):** Munendra
+- **Interview date:** September 20, 2025
+- **Customer segment represented:** Busy commuter students with a high risk of misplacing items due to frequent travel.
+
+**Key Insights:**
+
+- Shaini bounces between campus and work and home a lot. You end up leaving stuff behind in classrooms or lounge areas without even realizing.
+- One time she forgot her gym bag at the library. Came back the next day only to find it got shuffled off to some random room. 
+- She mentioned how tracking down lost things felt like a scavenger hunt with no clues.
+- Biggest thing for her was clear updates. If something turns up, she needs to know right away where exactly to go get it.
+
+**Representative Quotes:**
+
+- _“When I’m rushing between work and class, it’s so easy to forget something. That’s when I really need a system that just tells me where my stuff is.”_
+- _“Last time it took me three different classes before I found my bag. I don’t have time for that.”_
+- _“If the app could just ping me when something turns up, that would save me so much stress.”_
+
+**Assessment:**  
+**Must Have** — Shaini lives that fast commuter life. You know how it goes. Losing stuff probably happens more than she’d like. Having one central system to keep things straight must seem pretty key for her.
+
+---
+### **Interview 9**
+
+- **Who was interviewed (role/background):** Marcus, junior resident student, lives on campus, active in clubs and student government.
+- **Who participated in the interview (team members):** Munendra
+- **Interview date:** September 20, 2025
+- **Customer segment represented:** On-campus residents with steady campus access.
+
+**Key Insights:**
+
+- Marcus usually doesn’t misplace items because he lives close by and can return to his dorm quickly if he forgets something.
+- He occasionally finds other people’s items during club meetings and events, like water bottles, jackets, or chargers. 
+- His main frustration is not knowing where to turn items in or whether they’ll actually reach their owner.
+- He sees a lost-and-found system as useful for the community but not one specific for everything and different places he finds stuff at.
+
+**Representative Quotes:**
+
+- _“If I forget something, I just run back to my dorm. It’s not really a big deal for me.”_
+- _“The issue I see is more with items left at events—nobody knows where to put them, so they just sit around.”_
+- _“I think a system could help others more than me, but I’d use it to make sure stuff I find gets back to people.”_
+
+**Assessment:**  
+**Nice to Have** — Marcus doesn’t feel a personal urgency but recognizes the value of the system for community benefit and would engage as a finder rather than a seeker.
+
+---
 ## **4. Final Value Proposition and Customer Segments**
 
 - **Final Value Proposition:**  
