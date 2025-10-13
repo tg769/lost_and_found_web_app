@@ -108,3 +108,7 @@ The UML analysis of use cases and user stories have eight main classes — User,
 Visitors can submit multiple SearchRequests that return one or more Items, each belonging to a Category and tied to a Location. The Administrator manages Items and can update their status. Matches link exactly two Items, triggering Notifications sent to Users.
 
 This structure supports use cases for searching, reporting, managing, matching, and notifying, forming the foundation for constructing the UML class and use-case diagrams.
+
+**Use Case Diagram**
+
+![alt text](<WhatsApp Image 2025-10-13 at 01.35.19_38b8a3fc.jpg>)
