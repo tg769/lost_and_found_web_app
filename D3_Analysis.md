@@ -1,4 +1,62 @@
+**Format requirements for UML analysis**
 
+* **User**  
+  * userId  
+  * Name  
+  * email  
+* **Visitor (inherits from User)**  
+  * searchHistory  
+* **Administrator (inherits from User)**  
+  * Role  
+  * privileges  
+* **Item**  
+  * itemId  
+  * Description  
+  * dateReported  
+  * status  
+* **Category**  
+  * categoryId  
+  * name  
+* **Location**  
+  * locationId  
+  * Name  
+  * details  
+* **SearchRequest**  
+  * searchId  
+  * Date  
+  * criteria  
+* **Match**  
+  * matchId  
+  * confidenceScore  
+* **Notification**  
+  * notificationId  
+  * Message  
+  * dateSent
+
+**Associations with Multiplicity**
+
+* **User – SearchRequest:**  
+  * 1..1 User makes 0.. SearchRequests\*  
+* **SearchRequest – Item:**  
+  * 0..1 SearchRequest returns 0.. Items\*  
+* **Item – Category:**  
+  * 1 Item belongs to 1 Category  
+* **Item – Location:**  
+  * 1 Item is associated with 1 Location  
+* **Administrator – Item:**  
+  * 1.. Administrators manage 0..\* Items\*  
+* **Match – Item:**  
+  * 1 Match involves 2 Items (lost vs found)  
+* **Notification – User:**  
+  * 0.. Notifications sent to 1..1 User\*
+
+**Special Relationships**
+
+* **Inheritance:**  
+  * Visitor ⟶ User  
+  * Administrator ⟶ User  
+* **Composition:**  
+  * Location is composed within Item (an Item cannot exist without a Location).
 
 **System Description, Requirements:**
 
