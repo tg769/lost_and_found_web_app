@@ -110,5 +110,5 @@ Visitors can submit multiple SearchRequests that return one or more Items, each 
 This structure supports use cases for searching, reporting, managing, matching, and notifying, forming the foundation for constructing the UML class and use-case diagrams.
 
 **Use Case Diagram**
+![WhatsApp Image 2025-10-13 at 01 35 19_38b8a3fc](https://github.com/user-attachments/assets/468b50ac-1fa9-4c6d-987d-31db4493fa65)
 
-![alt text](<WhatsApp Image 2025-10-13 at 01.35.19_38b8a3fc.jpg>)
