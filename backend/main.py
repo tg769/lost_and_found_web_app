@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
-from backend import models, database
-from backend.routes import posts
+from . import models, database
+from .routes import posts
 
 models.Base.metadata.create_all(bind=database.engine)
 
