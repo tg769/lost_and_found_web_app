@@ -1,10 +1,8 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
-import os
-import uvicorn
-from . import models, database
-from .routes import posts
+from backend import models, database
+from backend.routes import posts
 
 models.Base.metadata.create_all(bind=database.engine)
 
