@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lost & Found</title>
+
+  <style>
+    :root {
+      --bg: #000;
+      --card: #121821;
+      --muted: #1a2230;
+      --accent: #4f8cff;
+      --accent-2: #22c55e;
+      --text: #e6eefc;
+      --subtext: #a8b3c7;
+      --ring: 0 0 0 3px rgba(79,140,255,.35);
+      --radius: 16px;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: var(--text); background: var(--bg); }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+    header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 0 8px; }
+
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .logo { width: 36px; height: 36px; border-radius: 12px; background: linear-gradient(135deg, var(--accent), #7aa8ff); display: grid; place-items: center; color: white; font-weight: 800; box-shadow: 0 8px 22px rgba(79,140,255,.35); }
+    h1 { font-size: 1.1rem; margin: 0; letter-spacing: .3px; }
+    .sub { color: var(--subtext); font-size: .9rem; }
+    .actions { display: flex; gap: 10px; align-items: center; }
+
+    .btn { appearance: none; border: 0; border-radius: 14px; background: var(--accent); color: #fff; padding: 10px 14px; font-weight: 600; cursor: pointer; box-shadow: 0 8px 18px rgba(79,140,255,.35); }
+    .btn.secondary { background: var(--muted); color: var(--text); box-shadow: none; }
+    .btn.link { background: transparent; border: 1px solid #2a3650; box-shadow: none; }
+
+    .searchbar { display: grid; grid-template-columns: 1fr auto; gap: 10px; margin: 10px 0 22px; }
+
+    .input, select, textarea { width: 100%; background: var(--card); color: var(--text); border: 1px solid #243044; border-radius: 12px; padding: 12px 14px; outline: none; }
+    .input:focus, select:focus, textarea:focus { box-shadow: var(--ring); border-color: var(--accent); }
+
+    .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    @media (max-width: 960px) { .cards { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px) { .cards { grid-template-columns: 1fr; } }
+
+    .card { background: var(--card); border: 1px solid #20283a; border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; }
+    .card figure { aspect-ratio: 16/10; background: #0e1420; overflow: hidden; }
+    .card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .card .body { padding: 14px; display: grid; gap: 8px; }
+    .badge { display: inline-flex; align-items: center; gap: 6px; font-size: .75rem; padding: 4px 8px; border-radius: 999px; background: #12243a; color: #9cc3ff; border: 1px solid #1e3350; width: max-content; }
+    .badge.found { background: #0f251a; color: #b6ffd1; border-color: #1a3a2a; }
+    .meta { color: var(--subtext); font-size: .85rem; }
+
+    footer { color: var(--subtext); text-align: center; padding: 28px 0; }
+
+    dialog.modal { width: min(680px, 92vw); border: 1px solid #253149; border-radius: 18px; background: #0f1520; color: var(--text); padding: 0; }
+    .modal header { padding: 16px 18px; border-bottom: 1px solid #212b3f; }
+    .modal .content { padding: 18px; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 720px) { .grid-2 { grid-template-columns: 1fr; } }
+
+    .field { display: grid; gap: 8px; }
+    .field label { color: var(--subtext); font-size: .9rem; }
+    .help { color: var(--subtext); font-size: .8rem; }
+
+    .dropzone { border: 1.5px dashed #2a3953; border-radius: 14px; background: #0e1624; padding: 14px; display: grid; gap: 10px; place-items: center; text-align: center; }
+    .dropzone.dragover { border-color: var(--accent); box-shadow: var(--ring); }
+    .thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+    .thumbs img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 10px; border: 1px solid #28354f; }
+
+    .bar { display: flex; justify-content: space-between; gap: 10px; padding: 14px 18px; border-top: 1px solid #212b3f; }
+    .btn.ghost { background: transparent; border: 1px solid #2a3650; color: var(--text); box-shadow: none; }
+
+    .toast { position: fixed; right: 16px; bottom: 16px; background: #0e1522; border: 1px solid #203050; color: var(--text); padding: 12px 14px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,.4); display: none; }
+    .toast.show { display: block; }
+
+    /* Simple styles for detail page */
+    .detail { max-width: 900px; margin: 0 auto; padding: 24px; }
+    .detail h2 { margin: 8px 0 4px; }
+    .detail .meta { margin-bottom: 12px; }
+    .detail .cols { display: grid; grid-template-columns: 1.2fr 1fr; gap: 16px; }
+    @media (max-width: 900px){ .detail .cols { grid-template-columns: 1fr; } }
+    .panel { background: var(--card); border: 1px solid #20283a; border-radius: 12px; padding: 14px; }
+    .panel h3 { margin-top: 0; }
+  </style>
+</head>
+<body>
+  <div class="container" id="listView" hidden>
+    <header>
+      <div class="brand" aria-label="Lost and Found">
+        <div class="logo" aria-hidden="true">L&F</div>
+        <div>
+          <h1>Lost &amp; Found</h1>
+          <div class="sub">Find lost items or report found ones.</div>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn secondary" aria-label="View my posts" onclick="location.href='#'">My Posts</button>
+        <button id="createPostBtn" class="btn" aria-haspopup="dialog" aria-controls="createPostModal">+ Create Post</button>
+      </div>
+    </header>
+
+    <section class="searchbar" role="search" aria-label="Search posts">
+      <input id="search" class="input" type="search" placeholder="Search by item, location, etc." aria-label="Search" />
+      <select id="filter">
+        <option value="all">All</option>
+        <option value="lost">Lost</option>
+        <option value="found">Found</option>
+      </select>
+    </section>
+
+    <section id="cards" class="cards" aria-live="polite"></section>
+
+    <footer>
+      <small>© <span id="year"></span> Lost &amp; Found. Built for the team by Munendra.</small>
+    </footer>
+  </div>
+
+  <!-- Detail View (rendered when ?item=ID) -->
+  <div id="detailView" class="detail" hidden></div>
+
+  <!-- Create Post Modal -->
+  <dialog id="createPostModal" class="modal" aria-labelledby="createPostTitle">
+    <header>
+      <h2 id="createPostTitle" style="margin:0">Create a Post</h2>
+    </header>
+    <form id="create-post-form" class="content" method="POST" action="/api/posts" enctype="multipart/form-data">
+      <div class="grid-2">
+        <div class="field">
+          <label for="type">Type</label>
+          <select id="type" name="type" required>
+            <option value="lost">Lost</option>
+            <option value="found">Found</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="title">Title</label>
+          <input id="title" name="title" class="input" placeholder="e.g., Black leather wallet" required />
+        </div>
+        <div class="field">
+          <label for="location">Location</label>
+          <input id="location" name="location" class="input" placeholder="Where did this happen?" required />
+        </div>
+        <div class="field">
+          <label for="date">Date</label>
+          <input id="date" name="date" type="date" class="input" required />
+        </div>
+        <div class="field" style="grid-column: 1/-1;">
+          <label for="description">Description</label>
+          <textarea id="description" name="description" rows="4" placeholder="Describe the item" required></textarea>
+        </div>
+        <div class="field" style="grid-column: 1/-1;">
+          <label for="images">Images</label>
+          <div id="dropzone" class="dropzone" role="button" tabindex="0" aria-label="Upload images">
+            <div><strong>Drag &amp; drop</strong> images here, or click to browse</div>
+            <input id="images" name="images" type="file" accept="image/*" multiple style="display:none" />
+            <div id="thumbs" class="thumbs" aria-live="polite"></div>
+          </div>
+          <div class="help">Up to 5 images. Accepted: JPG, PNG, WebP.</div>
+        </div>
+        <div class="field">
+          <label for="contactName">Your Name</label>
+          <input id="contactName" name="contactName" class="input" required />
+        </div>
+        <div class="field">
+          <label for="contact">Contact</label>
+          <input id="contact" name="contact" class="input" placeholder="Email or phone" required />
+        </div>
+      </div>
+      <div class="bar">
+        <button type="button" class="btn ghost" id="cancelModal">Cancel</button>
+        <div style="display:flex; gap:8px;">
+          <button type="reset" class="btn ghost">Reset</button>
+          <button type="submit" class="btn">Publish</button>
+        </div>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    // ---------- UTIL & STATE ----------
+    const toastEl = document.getElementById('toast');
+    let toastTimer;
+    function toast(msg){ toastEl.textContent = msg; toastEl.classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(()=>toastEl.classList.remove('show'), 2600); }
+
+    // Basic item storage in localStorage
+    const seed = [
+      { id: 'w1', type: 'lost', title: 'Black Leather Wallet', location: 'Near Library', date: '2025-10-10', description: 'Black wallet with a few cards inside.', image: 'https://images.unsplash.com/photo-1518544801976-3e188ea1f258?q=80&w=1200&auto=format&fit=crop' },
+      { id: 'k1', type: 'found', title: 'Set of Keys (Red Tag)', location: 'Cafeteria', date: '2025-10-12', description: 'Keys with a red keychain.', image: 'https://images.unsplash.com/photo-1565808225698-1e2c9493ab6d?q=80&w=1200&auto=format&fit=crop' },
+      { id: 'b1', type: 'found', title: 'Hydroflask Bottle', location: 'Gym', date: '2025-10-13', description: 'Silver bottle left near the treadmill.', image: 'https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?q=80&w=1200&auto=format&fit=crop' }
+    ];
+    function getItems(){ return JSON.parse(localStorage.getItem('lf_items')||'null') || seed; }
+    function setItems(items){ localStorage.setItem('lf_items', JSON.stringify(items)); }
+
+    function getTickets(){ return JSON.parse(localStorage.getItem('lf_tickets')||'[]'); }
+    function addTicket(t){ const all=getTickets(); all.push(t); localStorage.setItem('lf_tickets', JSON.stringify(all)); }
+
+    // ---------- LIST VIEW (HOME) ----------
+    const listView = document.getElementById('listView');
+    const cardsEl = document.getElementById('cards');
+    const searchEl = document.getElementById('search');
+    const filterEl = document.getElementById('filter');
+
+    function openItem(id){
+      window.open(window.location.pathname + '?item=' + encodeURIComponent(id), '_blank');
+    }
+
+    function cardHTML(item){
+      const badgeClass = item.type === 'found' ? 'badge found' : 'badge';
+      const imgPart = item.image ? `<figure><img src="${item.image}" alt="${item.title}"/></figure>` : `<figure></figure>`;
+      return `
+        <article class="card" role="button" tabindex="0" onclick="openItem('${item.id}')" onkeydown="if(event.key==='Enter'){openItem('${item.id}')}" aria-label="Open ${item.title} in new tab">
+          ${imgPart}
+          <div class="body">
+            <div class="${badgeClass}">${item.type.toUpperCase()}</div>
+            <h3 style="margin:6px 0 0">${item.title}</h3>
+            <div class="meta">${item.location} • ${new Date(item.date).toDateString()}</div>
+          </div>
+        </article>`;
+    }
+
+    function renderCards(){
+      const q = (searchEl?.value||'').toLowerCase();
+      const f = filterEl?.value||'all';
+      const items = getItems().filter(i =>
+        (f==='all' || i.type===f) &&
+        (i.title.toLowerCase().includes(q) || i.location.toLowerCase().includes(q) || i.description.toLowerCase().includes(q))
+      );
+      cardsEl.innerHTML = items.map(cardHTML).join('');
+    }
+
+    // ---------- DETAIL VIEW ----------
+    const detailView = document.getElementById('detailView');
+    function renderDetail(id){
+      const item = getItems().find(x => x.id === id);
+      if(!item){ document.body.innerHTML = '<div class="detail"><p>Item not found.</p></div>'; return; }
+      detailView.innerHTML = `
+        <a class="btn link" href="${window.location.pathname}">← Back to list</a>
+        <div class="cols" style="margin-top:12px">
+          <div class="panel">
+            ${item.image ? `<img src="${item.image}" alt="${item.title}" style="width:100%; border-radius:10px; margin-bottom:12px;"/>` : ''}
+            <h2>${item.title}</h2>
+            <div class="meta">Type: <strong>${item.type.toUpperCase()}</strong> • Location: <strong>${item.location}</strong> • Date: <strong>${new Date(item.date).toDateString()}</strong></div>
+            <p>${item.description || ''}</p>
+          </div>
+          <div class="panel">
+            <h3>Claim this item</h3>
+            <form id="claimForm">
+              <div class="field"><label for="cname">Your Name</label><input id="cname" class="input" required></div>
+              <div class="field"><label for="ccontact">Contact (email/phone)</label><input id="ccontact" class="input" required></div>
+              <div class="field"><label for="how">How did you lose/find it?</label><textarea id="how" rows="3" class="input" required></textarea></div>
+              <div class="grid-2">
+                <div class="field"><label for="when">When?</label><input id="when" type="date" class="input" required></div>
+                <div class="field"><label for="where">Where?</label><input id="where" class="input" placeholder="Area / building" required></div>
+              </div>
+              <div class="field"><label for="idfile">Upload ID (image/PDF)</label><input id="idfile" type="file" accept="image/*,application/pdf" class="input"></div>
+              <div class="field"><label for="pickup">Preferred pickup location</label><input id="pickup" class="input" placeholder="e.g., Security Desk, Room 101"></div>
+              <div class="bar" style="padding:0; margin-top:10px">
+                <button type="submit" class="btn">Create Ticket</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      `;
+      const claimForm = document.getElementById('claimForm');
+      claimForm.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        const t = {
+          id: 't'+Date.now(), itemId: item.id,
+          name: document.getElementById('cname').value.trim(),
+          contact: document.getElementById('ccontact').value.trim(),
+          how: document.getElementById('how').value.trim(),
+          when: document.getElementById('when').value,
+          where: document.getElementById('where').value.trim(),
+          pickup: document.getElementById('pickup').value.trim(),
+          idFileName: document.getElementById('idfile').files[0]?.name || null,
+          createdAt: new Date().toISOString()
+        };
+        addTicket(t);
+        toast('Ticket created! We\'ll review your ID and details.');
+        claimForm.reset();
+      });
+    }
+
+    // ---------- MODAL + CREATE POST ----------
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const modal = document.getElementById('createPostModal');
+    const openBtn = document.getElementById('createPostBtn');
+    const cancelBtn = document.getElementById('cancelModal');
+    const openModal = () => { if(modal.showModal) modal.showModal(); else modal.setAttribute('open',''); };
+    const closeModal = () => { modal.close ? modal.close() : modal.removeAttribute('open'); };
+    openBtn.addEventListener('click', openModal);
+    cancelBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+    const dz = document.getElementById('dropzone');
+    const fileInput = document.getElementById('images');
+    const thumbs = document.getElementById('thumbs');
+    const pickFiles = () => fileInput.click();
+    dz.addEventListener('click', pickFiles);
+    dz.addEventListener('dragover', (e)=>{ e.preventDefault(); dz.classList.add('dragover'); });
+    dz.addEventListener('dragleave', ()=> dz.classList.remove('dragover'));
+    dz.addEventListener('drop', (e)=>{ e.preventDefault(); dz.classList.remove('dragover'); fileInput.files = e.dataTransfer.files; setThumbs(fileInput.files); });
+    fileInput.addEventListener('change', (e)=> setThumbs(e.target.files));
+    function setThumbs(files){ thumbs.innerHTML=''; Array.from(files).slice(0,5).forEach(f=>{ if(!f.type.startsWith('image/')) return; const img=document.createElement('img'); img.src=URL.createObjectURL(f); img.alt=f.name; thumbs.appendChild(img); }); if(files.length>5) toast(`Showing first 5 of ${files.length} images.`); }
+
+    const form = document.getElementById('create-post-form');
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const items = getItems();
+      const newItem = {
+        id: 'i'+Date.now(),
+        type: form.type.value,
+        title: form.title.value.trim(),
+        location: form.location.value.trim(),
+        date: form.date.value,
+        description: form.description.value.trim(),
+        // For simplicity, store only first image as object URL (non-persistent across reloads)
+        image: (form.images.files && form.images.files[0]) ? URL.createObjectURL(form.images.files[0]) : ''
+      };
+      items.unshift(newItem);
+      setItems(items);
+      renderCards();
+      closeModal();
+      toast('Post added!');
+      form.reset(); thumbs.innerHTML='';
+    });
+
+    // ---------- ROUTING ----------
+    const params = new URLSearchParams(location.search);
+    const itemId = params.get('item');
+    if(itemId){
+      // detail page
+      detailView.hidden = false; listView.hidden = true;
+      renderDetail(itemId);
+    } else {
+      // list page
+      listView.hidden = false; detailView.hidden = true;
+      renderCards();
+      searchEl.addEventListener('input', renderCards);
+      filterEl.addEventListener('change', renderCards);
+    }
+  </script>
+</body>
+</html>
