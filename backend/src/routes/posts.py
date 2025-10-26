@@ -8,8 +8,9 @@ from uuid import uuid4 # Generates unique image filenames
 # Creates a router for all endpoints that begin with /posts
 router = APIRouter(prefix="/posts", tags=["Posts"])
 
-# Directory where uploaded images are saved
-UPLOAD_DIR = "backend/src/uploads"
+# Directory where uploaded images are saved relative to where
+# FastAPI is serving in directory
+UPLOAD_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "uploads")
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
 # Every request gets a database session
@@ -45,8 +46,8 @@ async def create_post(
         # Generate Unique filename
         ext = os.path.splitext(image.filename)[1]
         filename = f"{uuid4()}{ext}"
-        image_path = os.path.join("uploads", filename)
-        full_path = os.path.join("backend", image_path)
+        full_path = os.path.join(UPLOAD_DIR, filename)
+        image_path = f"uploads/{filename}"
         # Open image, convert to RGB, compress and save
         with Image.open(image.file) as img:
             img = img.convert("RGB")
