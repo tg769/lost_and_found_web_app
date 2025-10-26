@@ -3,11 +3,11 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse
 import os
-import models, database
-from routes import posts
+from src import models, database
+from src.routes import posts
 
 models.Base.metadata.create_all(bind=database.engine)
-
+# Creates the FastAPI instance
 app = FastAPI(title="Lost & Found API")
 
 # Allow frontend to connect
@@ -20,7 +20,7 @@ app.add_middleware(
 )
 
 # Serve uploaded images
-app.mount("/uploads", StaticFiles(directory="backend/uploads"), name="uploads")
+app.mount("/uploads", StaticFiles(directory="src/uploads"), name="uploads")
 
 # Routes
 app.include_router(posts.router)

@@ -1,23 +1,28 @@
 import os
 from fastapi import APIRouter, UploadFile, File, Form, Depends, HTTPException
 from sqlalchemy.orm import Session
-import models, schemas, database
-from PIL import Image
-from uuid import uuid4
+from src import models, schemas, database
+from PIL import Image # Used to compress/resize uploaded images
+from uuid import uuid4 # Generates unique image filenames
 
+# Creates a router for all endpoints that begin with /posts
 router = APIRouter(prefix="/posts", tags=["Posts"])
-UPLOAD_DIR = "backend/uploads"
+
+# Directory where uploaded images are saved
+UPLOAD_DIR = "backend/src/uploads"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
+# Every request gets a database session
 def get_db():
     db = database.SessionLocal()
     try:
         yield db
     finally:
         db.close()
-
+# Create a post
 @router.post("/", response_model=schemas.PostResponse)
 async def create_post(
+    # Form data fields sent from frontend
     title: str = Form(...),
     description: str = Form(...),
     category: str = Form(...),
@@ -28,17 +33,21 @@ async def create_post(
     image: UploadFile = File(None),
     db: Session = Depends(get_db)
 ):
+    # Validate Category
     if category not in ["lost", "found"]:
         raise HTTPException(status_code=400, detail="Category must be 'lost' or 'found'.")
 
     image_path = None
+    # Handle image upload
     if image:
         if not image.content_type.startswith("image/"):
             raise HTTPException(status_code=400, detail="Invalid image format.")
+        # Generate Unique filename
         ext = os.path.splitext(image.filename)[1]
         filename = f"{uuid4()}{ext}"
         image_path = os.path.join("uploads", filename)
         full_path = os.path.join("backend", image_path)
+        # Open image, convert to RGB, compress and save
         with Image.open(image.file) as img:
             img = img.convert("RGB")
             img.thumbnail((800, 800))
@@ -58,7 +67,7 @@ async def create_post(
     db.commit()
     db.refresh(new_post)
     return new_post
-
+# Get all posts sorted by newest to first
 @router.get("/", response_model=list[schemas.PostResponse])
 def get_posts(db: Session = Depends(get_db)):
     return db.query(models.Post).order_by(models.Post.created_at.desc()).all()
