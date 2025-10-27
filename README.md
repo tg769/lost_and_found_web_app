@@ -123,8 +123,6 @@ git push origin v1.0.0
 - **Rebecca Sommerville** – UI Design & Video Demonstration  
 - **Keith Schmidt** – Backend & Database Integration  
 
-See also the full list of contributors on GitHub.
-
 ---
 
 ## License
