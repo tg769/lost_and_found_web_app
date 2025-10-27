@@ -121,7 +121,7 @@ git push origin v1.0.0
 - **Munendra Choudhary** – UI Design & User Experience  
 - **Myles Hill** – Documentation & Testing  
 - **Rebecca Sommerville** – UI Design & Video Demonstration  
-- **Keith** – Backend & Database Integration  
+- **Keith Schmidt** – Backend & Database Integration  
 
 See also the full list of contributors on GitHub.
 
