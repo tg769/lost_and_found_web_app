@@ -68,8 +68,7 @@ pytest
 
 ## Deployment
 
-**Status:** Not deployed yet — system tested locally via localhost.  
-Deployment will be added in future iterations using Render.
+**Status:** The app has been deployed through Render - https://lost-and-found-web-app-voh7.onrender.com/
 
 ---
 
