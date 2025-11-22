@@ -61,7 +61,7 @@ class TestCreatePost:
         mocker.patch('src.routes.posts.os.path.join', side_effect=lambda *args: '/'.join(args))
         mocker.patch('src.routes.posts.os.makedirs')
         mocker.patch('src.routes.posts.os.path.splitext', return_value=('test', '.png'))
-        
+         
         # Mock Post
         mock_post = Mock(spec=models.Post)
         mock_post.id = 1
