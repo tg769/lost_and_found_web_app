@@ -1,11 +1,11 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, constr, Field
 from typing import Optional
 from datetime import datetime
 
 class PostCreate(BaseModel):
-    title: str
-    description: str
-    category: str
+    title: constr(min_length=3, max_length=100)
+    description: constr(min_length=5, max_length=2000)
+    category: constr(regex="^(lost|found)$")
     location: str
     date: str
     contact_name: str
@@ -25,3 +25,4 @@ class PostResponse(BaseModel):
 
     class Config:
         orm_mode = True
+
