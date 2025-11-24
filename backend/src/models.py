@@ -8,10 +8,8 @@ class Post(Base):
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String(100), nullable=False)
     description = Column(Text, nullable=False)
-    category = Column(String(20), nullable=False)   # "lost" or "found"
-    location = Column(String(100))
-    date = Column(String(20))
+    category = Column(String(20), nullable=False)
+    location = Column(String(150))
     contact_name = Column(String(100))
-    contact = Column(String(100))
-    image_path = Column(String(255))
-    created_at = Column(DateTime, default=datetime.utcnow)
+    contact = Column(String(150))
+
